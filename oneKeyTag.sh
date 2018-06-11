@@ -9,7 +9,11 @@ function oneKeyTag() {
 
   branchName=`git symbolic-ref --short -q HEAD`;
 
-  tagName="$tagType-$now-$branchName";
+  replace=""
+
+  result=`echo $branchName | sed -e "s/[-]/"${replace}"/g"`
+
+  tagName="$tagType-$now-$result";
 
   echo -e "\e[1;32m create tag name Done \e[0m";
   echo "$tagName";
