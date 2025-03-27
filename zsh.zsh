@@ -9,15 +9,6 @@ function change_to_github() {
   fi
 }
 
-function change_to_work() {
-  curUserName=`git config user.name`
-  if [ curUserName != 'yuxinzhe.seraph' ]
-  then
-  git config --global user.name "yuxinzhe.seraph"
-  git config --global user.email "yuxinzhe.seraph@bytedance.com"
-  fi
-}
-
 function one_key_push() {
   echo "\e[1;33m input commit info \e[0m"
   read msg
@@ -42,12 +33,6 @@ function one_key_push() {
   else
   echo "\e[1;31m Merge Failed Check Code \e[0m"
   fi
-}
-
-function login_ci() {
-  kinit --keychain yuxinzhe.seraph@BYTEDANCE.COM
-  # ssh -K root@10.225.121.162
-  ssh -K root@10.199.20.22
 }
 
 function npm_view_versions() {
